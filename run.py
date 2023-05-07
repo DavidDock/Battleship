@@ -15,3 +15,21 @@ class Player:
         self.name = name
         self.size = size
         self.ships = ships
+
+    def get_user_name(self):
+        """
+        Gets user input for their name
+        uses input to name player
+        returns name
+        """
+        print("Ok Captain what is your name? \n")
+        user_name = input()
+        if user_name == "":
+            user_name = "lazy bones"
+        self.name = user_name.upper()
+        print(f"\nHello {self.name}\n")
+        return self.name
+
+
+user = Player("", 0, 0)
+Player.get_user_name(user)
