@@ -6,7 +6,7 @@
   * [Who is the game for](#who-is-the-game-for)
   * [User Stories](#user-stories)
   * [Design](#design)
-  * [Wireframes](#wireframes)
+  * [Flowchart](#flowchart)
 
 * [Features](#features)
   * [Languages Used](#languages-used)
@@ -30,7 +30,7 @@
 
 #### How will the goals be acheived
 
-### Wireframes
+### Flowchart
 
 ## Design
 
