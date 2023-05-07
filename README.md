@@ -1,32 +1,53 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship! 
 
-Welcome,
+## CONTENTS
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+* [User Experience](#user-experience)
+  * [Who is the game for](#who-is-the-game-for)
+  * [User Stories](#user-stories)
+  * [Design](#design)
+  * [Wireframes](#wireframes)
 
-## Reminders
+* [Features](#features)
+  * [Languages Used](#languages-used)
+  * [Future Implementations](#future-implementations)
+  * [Data Model](#data-model)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+* [Deployment](#deployment)
+* [Testing](#testing)
+* [Credits](#credits)
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## User Experience
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Who is the game for 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### User Stories  
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+#### User goals
 
-Connect your GitHub repository and deploy as normal.
+#### The websites goals
 
-## Constraints
+#### How will the goals be acheived
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Wireframes
 
----
+## Design
 
-Happy coding!
+## Features  
+
+### Languages Used  
+
+Python
+
+### Future Implementations
+
+## Data Model
+
+## Deployment
+
+## Testing
+
+Please refer to [TESTING.MD](TESTING.md)  
+
+## Credits
