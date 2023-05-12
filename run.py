@@ -79,7 +79,7 @@ class Player:
         self.name = user_name.upper()
         return self.name
 
-    def size_choices(self):
+    def size_choice(self):
         """
         Gets user input for grid size
         validates input
@@ -100,6 +100,28 @@ class Player:
         self.size = int(choice)
         return self.size
 
+    def ships_choice(self):
+        """
+        get user to choose amount of ships
+        validate input
+        uses input to alocate ships to player
+        returns ships
+        """
+        ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""] 
+        while True:
+            print(" Pick the number of Ships: ")
+            choice_ships = input(" 1 2 3 4 5 6 or 8?\n")
+            if validate_data(choice_ships, ship_number):
+                break
+        if choice_ships == "":
+            print(" Ok no worries")
+            print(" Let's make it easy, there is only 1 Ship to destroy\n")
+            self.ships = int(1)
+            return self.ships
+        print(f" You picked {choice_ships} Ships, good luck {self.name}\n")
+        self.ships = int(choice_ships)
+        return self.ships
+
 
 def main():
     """
@@ -110,7 +132,8 @@ def main():
     Player.get_user_name(user)
     rules(user)
     game_choice = choose_game()
-    Player.size_choices(user)
+    Player.size_choice(user)
+    Player.ships_choice(user)
 
 
 main()
