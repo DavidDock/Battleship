@@ -2,6 +2,13 @@
 from random import randint
 
 
+def welcome():
+    """
+    Prints welcome message to player
+    """
+    print(" Welcome to BATTLESHIP\n")
+
+
 class Player:
     """
     class for player with methods to
@@ -31,5 +38,13 @@ class Player:
         return self.name
 
 
-user = Player("", 0, 0)
-Player.get_user_name(user)
+def main():
+    """
+    runs the whole game
+    """
+    welcome()
+    user = Player("", 0, 0)
+    Player.get_user_name(user)
+
+
+main()
