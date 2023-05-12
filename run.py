@@ -139,11 +139,11 @@ class GameBoards:
         technique learnt from https://www.youtube.com/watch?v=tF1WRCrd_HQ
         """
         print(f"\n {self.player.name}'s {self.board_type} \n")
-        print(" ", *range(1, self.player.size + 1))
-        print(" ", "+-" * self.player.size)
+        print("   ", *range(1, self.player.size + 1))
+        print("   ", "+-" * self.player.size)
         row_number = 1
         for row in self.board:
-            print("%d|%s|" % (row_number, "|".join(row)))
+            print(" ", "%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
     def create_ships(self):
@@ -158,6 +158,26 @@ class GameBoards:
                               randint(0, (self.player.size - 1))
             self.board[row][column] = "@"
         return self.board
+
+    def get_player_guess(self):
+        """
+        get input from user for row and column guess
+        validate input against possible numbers
+        return row and column
+        """
+        numbers_list = []
+        for i in range(1, (self.player.size + 1)):
+            numbers_list.append(str(i))
+        print("\n Where would you like to Shoot? \n")
+        while True:
+            row = input("\n Enter the row: \n ")
+            if validate_data(row, numbers_list):
+                break
+        while True:
+            column = input("\n Enter the column: \n ")
+            if validate_data(column, numbers_list):
+                break
+        return int(row) - 1, int(column) - 1
 
 
 def main():
@@ -182,6 +202,8 @@ def main():
     comp_ship_board = GameBoards(comp, "Boat Board")
     GameBoards.create_ships(comp_ship_board)
     GameBoards.print_board(comp_ship_board)
+    user_row, user_column = GameBoards.get_player_guess(user_guess_board)
+    print(user_row, user_column)
 
 
 main()
