@@ -36,6 +36,22 @@ def validate_data(data, data_list):
     return True
 
 
+def choose_game():
+    """
+    get player to choose game type
+    validate input
+    return choice
+    """
+    game_choices = ["1", "2"]
+    while True:
+        print(" Pick your Game:")
+        game_pick = input(" 1 or 2? \n")
+        if validate_data(game_pick, game_choices):
+            break
+    print(f"\n You picked Game {game_pick} \n")
+    return game_pick
+
+
 class Player:
     """
     class for player with methods to
@@ -93,6 +109,7 @@ def main():
     user = Player("", 0, 0)
     Player.get_user_name(user)
     rules(user)
+    game_choice = choose_game()
     Player.size_choices(user)
 
 
