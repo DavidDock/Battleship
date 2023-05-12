@@ -133,6 +133,19 @@ class GameBoards:
         self.player = player
         self.board_type = board_type
 
+    def print_board(self):
+        """
+        prints the relevent board
+        technique learnt from https://www.youtube.com/watch?v=tF1WRCrd_HQ
+        """
+        print(f"\n {self.player.name}'s {self.board_type} \n")
+        print(" ", *range(1, self.player.size + 1))
+        print(" ", "+-" * self.player.size)
+        row_number = 1
+        for row in self.board:
+            print("%d|%s|" % (row_number, "|".join(row)))
+            row_number += 1
+
 
 def main():
     """
@@ -146,12 +159,22 @@ def main():
     game_choice = choose_game()
     Player.size_choice(user)
     Player.ships_choice(user)
+    # create instances of boards for user
+    user_guess_board = GameBoards(user, "Guess Board")
+    user_ship_board = GameBoards(user, "Boat Board")
     # create instance of player for the computer
     comp = Player("The Enemy", user.size, user.ships)
+    # create instances of boards for the computer
+    comp_guess_board = GameBoards(comp, "Guess Board")
+    comp_ship_board = GameBoards(comp, "Boat Board")
     print(comp.size)
     print(comp.name)
     print(comp.ships)
     print(game_choice)
+    GameBoards.print_board(user_guess_board)
+    GameBoards.print_board(user_ship_board)
+    GameBoards.print_board(comp_guess_board)
+    GameBoards.print_board(comp_ship_board)
 
 
 main()
