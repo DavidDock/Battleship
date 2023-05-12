@@ -107,7 +107,7 @@ class Player:
         uses input to alocate ships to player
         returns ships
         """
-        ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""] 
+        ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""]
         while True:
             print(" Pick the number of Ships: ")
             choice_ships = input(" 1 2 3 4 5 6 or 8?\n")
@@ -134,6 +134,12 @@ def main():
     game_choice = choose_game()
     Player.size_choice(user)
     Player.ships_choice(user)
+    # create instance of player for the computer
+    comp = Player("The Enemy", user.size, user.ships)
+    print(comp.size)
+    print(comp.name)
+    print(comp.ships)
+    print(game_choice)
 
 
 main()
