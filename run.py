@@ -123,12 +123,24 @@ class Player:
         return self.ships
 
 
+class GameBoards:
+    """
+    class for the gameboards with methods to
+    print board, place ships, get users guess and count hit ships
+    """
+    def __init__(self, player, board_type):
+        self.board = [[" "] * (player.size) for i in range((player.size))]
+        self.player = player
+        self.board_type = board_type
+
+
 def main():
     """
     runs the whole game
     """
     welcome()
     user = Player("", 0, 0)
+    # create instance of player for the user
     Player.get_user_name(user)
     rules(user)
     game_choice = choose_game()
