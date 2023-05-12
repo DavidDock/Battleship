@@ -146,6 +146,19 @@ class GameBoards:
             print("%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
+    def create_ships(self):
+        """
+        places relevent number of ships randomly on relevent board
+        """
+        for ship in range(self.player.ships):
+            row, column = randint(0, (self.player.size - 1)),\
+                          randint(0, (self.player.size - 1))
+            while self.board[row][column] == "@":
+                row, column = randint(0, (self.player.size - 1)),\
+                              randint(0, (self.player.size - 1))
+            self.board[row][column] = "@"
+        return self.board
+
 
 def main():
     """
@@ -167,13 +180,7 @@ def main():
     # create instances of boards for the computer
     comp_guess_board = GameBoards(comp, "Guess Board")
     comp_ship_board = GameBoards(comp, "Boat Board")
-    print(comp.size)
-    print(comp.name)
-    print(comp.ships)
-    print(game_choice)
-    GameBoards.print_board(user_guess_board)
-    GameBoards.print_board(user_ship_board)
-    GameBoards.print_board(comp_guess_board)
+    GameBoards.create_ships(comp_ship_board)
     GameBoards.print_board(comp_ship_board)
 
 
