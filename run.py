@@ -23,7 +23,7 @@ class Player:
         returns name
         """
         print("Ok Captain what is your name? \n")
-        user_name = input()
+        user_name = input("\n")
         if user_name == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
