@@ -2,13 +2,6 @@
 from random import randint
 
 
-def welcome():
-    """
-    welcome message to player
-    """
-    print(" Welcome to BATTLESHIP\n")
-
-
 class Player:
     """
     class for player with methods to
@@ -29,15 +22,14 @@ class Player:
         uses input to name player
         returns name
         """
-        print(" Ok Captain what is your name? \n")
+        print("Ok Captain what is your name? \n")
         user_name = input("\n")
         if user_name == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
-        print(f" \nHello {self.name}\n")
+        print(f"\nHello {self.name}\n")
         return self.name
 
 
-welcome()
 user = Player("", 0, 0)
 Player.get_user_name(user)
