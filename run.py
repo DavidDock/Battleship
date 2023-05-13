@@ -191,6 +191,23 @@ class GameBoards:
         return hit_boats
 
 
+class GameType:
+    """
+    class for game type
+    methods for each game type
+    """
+    def __init__(self, turns, player_one, player_two, player_one_boat_board,
+                 player_one_guess_board, player_two_boat_board,
+                 player_two_guess_board):
+        self.turns = turns
+        self.player_one = player_one
+        self.player_two = player_two
+        self.player_one_boat_board = player_one_boat_board
+        self.player_one_guess_board = player_one_guess_board
+        self.player_two_boat_board = player_two_boat_board
+        self.player_two_guess_board = player_two_guess_board
+
+
 def main():
     """
     runs the whole game
