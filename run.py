@@ -188,18 +188,18 @@ class GameBoards:
             for column in row:
                 if column == "X":
                     hit_ships += 1
-        return hit_boats
+        return hit_ships
 
-        def count_hit_ships(self):
-            """
-            count how many remaining ships(@) are on the board
-            """
-            remaining_ships = 0
-            for row in self.board:
-                for column in row:
-                    if column == "@":
-                        remaining_sips += 1
-            return remaining_ships    
+    def count_remaining_ships(self):
+        """
+        count how many remaining ships(@) are on the board
+        """
+        remaining_ships = 0
+        for row in self.board:
+            for column in row:
+                if column == "@":
+                    remaining_ships += 1
+        return remaining_ships
 
 
 class GameType:
@@ -241,12 +241,16 @@ class GameType:
             if GameBoards.count_hit_ships(self.player_one_guess_board) == int(self.player_one.ships):
                 print(" You hit all the boats!")
                 break
-        else:
-            self.turns -= 1
-            print(f" You have {self.turns} turns remaining")
-        if self.turns == 0:
-            print(" Sorry you ran out of turns")
-        GameBoards.print_board(self.player_one_guess_board)
+            elif self.turns - 1 < GameBoards.count_remaining_ships(self.player_two_ship_board):
+                print("You've not got enough shots left to sink their boats")
+                GameBoards.print_board(self.player_two_ship_board)
+                break
+            else:
+                self.turns -= 1
+                print(f" You have {self.turns} turns remaining")
+            if self.turns == 0:
+                print(" Sorry you ran out of turns")
+                GameBoards.print_board(self.player_one_guess_board)
 
 
 def main():
