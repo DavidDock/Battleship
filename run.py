@@ -227,11 +227,11 @@ def main():
     comp = Player("The Enemy", user.size, user.ships)
     # create instances of boards for the computer
     comp_guess_board = GameBoards(comp, "Guess Board")
-    comp_ship_board = GameBoards(comp, "Boat Board")
-    GameBoards.create_ships(comp_ship_board)
-    GameBoards.print_board(comp_ship_board)
-    user_row, user_column = GameBoards.get_player_guess(user_guess_board)
-    print(user_row, user_column)
+    comp_ship_board = GameBoards(comp, "Boat Board") 
+    turns = 12
+    # create intance of game type
+    game = GameType(turns, user, comp, user_ship_board, user_guess_board,
+                    comp_ship_board, comp_guess_board)
 
 
 main()
