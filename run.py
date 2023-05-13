@@ -228,9 +228,11 @@ class GameType:
             GameBoards.print_board(self.player_one_guess_board)
             GameBoards.print_board(self.player_two_ship_board)
             user_row, user_column = GameBoards.get_player_guess(self.player_one_guess_board)
+            # check if input is guessed aleady
             while self.player_one_guess_board.board[user_row][user_column] == "-" or self.player_one_guess_board.board[user_row][user_column] == "X":
                 print(" You guessed that one already")
                 user_row, user_column = GameBoards.get_player_guess(self.player_one_guess_board)
+            # check if player hit a ship
             if self.player_two_ship_board.board[user_row][user_column] == "@":
                 print(" You sunk a ship!")
                 self.player_one_guess_board.board[user_row][user_column] = "X"
@@ -238,11 +240,13 @@ class GameType:
             else:
                 print(" You missed!")
                 self.player_one_guess_board.board[user_row][user_column] = "-"
+            # check if player has hit all ships
             if GameBoards.count_hit_ships(self.player_one_guess_board) == int(self.player_one.ships):
                 print(" You hit all the boats!")
                 break
+            # check if player has enough turns left to win
             elif self.turns - 1 < GameBoards.count_remaining_ships(self.player_two_ship_board):
-                print("You've not got enough shots left to sink their boats")
+                print(" You've not got enough shots left to sink their boats")
                 GameBoards.print_board(self.player_two_ship_board)
                 break
             else:
