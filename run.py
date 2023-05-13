@@ -183,12 +183,23 @@ class GameBoards:
         """
         count how many hits(X) are on the board
         """
-        hit_boats = 0
+        hit_ships = 0
         for row in self.board:
             for column in row:
                 if column == "X":
-                    hit_boats += 1
+                    hit_ships += 1
         return hit_boats
+
+        def count_hit_ships(self):
+            """
+            count how many remaining ships(@) are on the board
+            """
+            remaining_ships = 0
+            for row in self.board:
+                for column in row:
+                    if column == "@":
+                        remaining_sips += 1
+            return remaining_ships    
 
 
 class GameType:
