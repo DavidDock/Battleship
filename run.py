@@ -179,6 +179,17 @@ class GameBoards:
                 break
         return int(row) - 1, int(column) - 1
 
+    def count_hit_ships(self):
+        """
+        count how many hits(X) are on the board
+        """
+        hit_boats = 0
+        for row in self.board:
+            for column in row:
+                if column == "X":
+                    hit_boats += 1
+        return hit_boats
+
 
 def main():
     """
