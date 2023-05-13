@@ -202,10 +202,40 @@ class GameType:
         self.turns = turns
         self.player_one = player_one
         self.player_two = player_two
-        self.player_one_boat_board = player_one_boat_board
+        self.player_one_ship_board = player_one_boat_board
         self.player_one_guess_board = player_one_guess_board
-        self.player_two_boat_board = player_two_boat_board
+        self.player_two_ship_board = player_two_boat_board
         self.player_two_guess_board = player_two_guess_board
+
+    def play_game_one(self):
+        """
+        runs game type one
+        """
+        GameBoards.create_ships(self.player_two_ship_board)
+        # while loop for when still turns left
+        while self.turns > 0:
+            GameBoards.print_board(self.player_one_guess_board)
+            GameBoards.print_board(self.player_two_ship_board)
+            user_row, user_column = GameBoards.get_player_guess(self.player_one_guess_board)
+            while self.player_one_guess_board.board[user_row][user_column] == "-" or self.player_one_guess_board.board[user_row][user_column] == "X":
+                print(" You guessed that one already")
+                user_row, user_column = GameBoards.get_player_guess(self.player_one_guess_board)
+            if self.player_two_ship_board.board[user_row][user_column] == "@":
+                print(" You sunk a ship!")
+                self.player_one_guess_board.board[user_row][user_column] = "X"
+                self.player_two_ship_board.board[user_row][user_column] = "X"
+            else:
+                print(" You missed!")
+                self.player_one_guess_board.board[user_row][user_column] = "-"
+            if GameBoards.count_hit_ships(self.player_one_guess_board) == int(self.player_one.ships):
+                print(" You hit all the boats!")
+                break
+        else:
+            self.turns -= 1
+            print(f" You have {self.turns} turns remaining")
+        if self.turns == 0:
+            print(" Sorry you ran out of turns")
+        GameBoards.print_board(self.player_one_guess_board)
 
 
 def main():
@@ -232,6 +262,7 @@ def main():
     # create intance of game type
     game = GameType(turns, user, comp, user_ship_board, user_guess_board,
                     comp_ship_board, comp_guess_board)
+    GameType.play_game_one(game)
 
 
 main()
