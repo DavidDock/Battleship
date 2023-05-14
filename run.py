@@ -259,9 +259,8 @@ class GameType:
             else:
                 self.turns -= 1
                 print(f" You have {self.turns} turns remaining")
-            if self.turns == 0:
-                print(" Sorry you ran out of turns")
-                GameBoards.print_board(self.player_one_guess_board)
+        print("\n Sorry you ran out of turns")
+        GameBoards.print_board(self.player_one_guess_board)
 
 
 def main():
