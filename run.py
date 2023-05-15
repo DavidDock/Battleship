@@ -52,6 +52,25 @@ def choose_game():
     return game_pick
 
 
+def end_game():
+    """
+    function for end of game
+    ask player if they want to play again
+    validate input
+    either play game again or say goodbye depending on input
+    """
+    end_choices = ["Y", "N"]
+    while True:
+        print(" Play again?: \n")
+        end_choice = input("Y or N? \n").upper()
+        if validate_data(end_choice, end_choices):
+            break
+    if end_choice == "Y":
+        main()
+    else:
+        print("\n Thanks for playing")
+
+
 class Player:
     """
     class for player with methods to
@@ -237,8 +256,10 @@ class GameType:
             # check if player has hit all ships
             if GameBoards.count_rem_ships(self.player_two_ship_board) \
                     == 0:
-                print(f" {self.player_one.name} hit all the ships! \n")
+                print(f" {self.player_one.name} hit all the ships!"
+                      " Congratulations, the war is won! \n")
                 GameBoards.print_board(self.player_two_ship_board)
+                print("\n")
                 break
             # check if player has enough turns left to win
             elif self.turns - 1 < \
@@ -246,10 +267,11 @@ class GameType:
                 print(f" Sorry {self.player_one.name}, you loose the war! \n"
                       " You've not enough shots left to sink all the ships")
                 GameBoards.print_board(self.player_two_ship_board)
+                print("\n")
                 break
             else:
                 self.turns -= 1
-                print(f" You have {self.turns} turns remaining")
+                print(f" You have {self.turns} turns remaining ")
 
 
 def main():
@@ -277,6 +299,7 @@ def main():
     game = GameType(turns, user, comp, user_ship_board, user_guess_board,
                     comp_ship_board, comp_guess_board)
     GameType.play_game_one(game)
+    end_game()
 
 
 main()
