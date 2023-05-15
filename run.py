@@ -179,17 +179,6 @@ class GameBoards:
                 break
         return int(row) - 1, int(column) - 1
 
-    def count_hit_ships(self):
-        """
-        count how many hits(X) are on the board
-        """
-        hit_ships = 0
-        for row in self.board:
-            for column in row:
-                if column == "X":
-                    hit_ships += 1
-        return hit_ships
-
     def count_rem_ships(self):
         """
         count how many remaining ships(@) are on the board
@@ -226,6 +215,7 @@ class GameType:
         # while loop for when still turns left
         while self.turns > 0:
             GameBoards.print_board(self.player_one_guess_board)
+            GameBoards.print_board(self.player_two_ship_board)
             user_row, user_column = GameBoards.get_player_guess(
                 self.player_one_guess_board)
             # check if input is guessed aleady
@@ -236,7 +226,7 @@ class GameType:
                 print(" Those coordinates have been guessed already \n")
                 user_row, user_column \
                     = GameBoards.get_player_guess(self.player_one_guess_board)
-            # check if player hit a ship
+            # check if player hit or missed a ship
             if self.player_two_ship_board.board[user_row][user_column] == "@":
                 print(f" {self.player_one.name} sunk a ship! \n")
                 self.player_one_guess_board.board[user_row][user_column] = "X"
@@ -245,10 +235,9 @@ class GameType:
                 print(f" {self.player_one.name} missed! \n")
                 self.player_one_guess_board.board[user_row][user_column] = "-"
             # check if player has hit all ships
-            if GameBoards.count_hit_ships(self.player_one_guess_board) \
-                    == int(self.player_one.ships):
-                print(f" {self.player_one.name} hit all the ships! \n"
-                      " The war is won, congratulations!")
+            if GameBoards.count_rem_ships(self.player_two_ship_board) \
+                    == 0:
+                print(f" {self.player_one.name} hit all the ships! \n")
                 GameBoards.print_board(self.player_two_ship_board)
                 break
             # check if player has enough turns left to win
@@ -261,9 +250,6 @@ class GameType:
             else:
                 self.turns -= 1
                 print(f" You have {self.turns} turns remaining")
-        print(f"\n Sorry {self.player_one.name} ran out of shots \n"
-              " The war is lost")
-        GameBoards.print_board(self.player_one_guess_board)
 
 
 def main():
