@@ -274,6 +274,9 @@ class GameType:
                   " You have no shots left \n")
             GameBoards.print_board(self.player_two_ship_board)
 
+    def play_game_two(self):
+        pass
+
 
 def main():
     """
@@ -299,7 +302,10 @@ def main():
     # create intance of game type
     game = GameType(turns, user, comp, user_ship_board, user_guess_board,
                     comp_ship_board, comp_guess_board)
-    GameType.play_game_one(game)
+    if game_choice == "1":
+        GameType.play_game_one(game)
+    else:
+        GameType.play_game_two(game)
     end_game()
 
 
