@@ -265,13 +265,17 @@ class GameType:
             elif self.turns - 1 < \
                     GameBoards.count_rem_ships(self.player_two_ship_board):
                 print(f" Sorry {self.player_one.name}, you loose the war! \n"
-                      " You've not enough shots left to sink all the ships")
+                      " You've not enough shots left to sink all the ships \n")
                 GameBoards.print_board(self.player_two_ship_board)
                 print("\n")
                 break
             else:
                 self.turns -= 1
                 print(f" You have {self.turns} turns remaining ")
+        if self.turns == 0:
+            print(f" Sorry {self.player_one.name}, you loose the war! \n"
+                  " You have no shots left \n")
+            GameBoards.print_board(self.player_two_ship_board)
 
 
 def main():
