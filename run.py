@@ -31,7 +31,7 @@ def validate_data(data, data_list):
             raise ValueError(
                 f"Please choose : {' '.join(data_list)}")
     except ValueError as e:
-        print(f" Invalid entry. {e}")
+        print(f" Invalid entry. {e} \n")
         return False
     return True
 
@@ -44,8 +44,7 @@ def choose_game():
     """
     game_choices = ["1", "2"]
     while True:
-        print(" Pick your Game:")
-        game_pick = input(" 1 or 2? \n")
+        game_pick = input(" Pick your Game: 1 or 2? \n")
         if validate_data(game_pick, game_choices):
             break
     print(f"\n You picked Game {game_pick} \n")
@@ -61,8 +60,7 @@ def end_game():
     """
     end_choices = ["Y", "N"]
     while True:
-        print(" Play again?: \n")
-        end_choice = input("Y or N? \n").upper()
+        end_choice = input(" Play again?: Y or N \n").upper()
         if validate_data(end_choice, end_choices):
             break
     if end_choice == "Y":
@@ -91,8 +89,7 @@ class Player:
         uses input to name player
         returns name
         """
-        print(" Ok Captain what is your name? \n")
-        user_name = input(" \n")
+        user_name = input(" Ok Captain what is your name?\n")
         if user_name == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
