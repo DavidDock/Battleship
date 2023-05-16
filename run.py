@@ -44,7 +44,7 @@ def choose_game():
     """
     game_choices = ["1", "2"]
     while True:
-        game_pick = input("\n Pick your Game: 1 or 2? \n")
+        game_pick = input(" Pick your Game: 1 or 2? \n ")
         if validate_data(game_pick, game_choices):
             break
     print(f"\n You picked Game {game_pick} \n")
@@ -60,7 +60,7 @@ def end_game():
     """
     end_choices = ["Y", "N"]
     while True:
-        end_choice = input("\n Play again?: Y or N \n").upper()
+        end_choice = input(" Play again?: Y or N \n ").upper()
         if validate_data(end_choice, end_choices):
             break
     if end_choice == "Y":
@@ -89,7 +89,7 @@ class Player:
         uses input to name player
         returns name
         """
-        user_name = input("\n Ok Captain what is your name?\n")
+        user_name = input(" Ok Captain what is your name? \n ")
         if user_name == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
@@ -105,7 +105,7 @@ class Player:
         grids = ["4", "5", "6", "7", "8", ""]
         while True:
             print("\n Pick your battlefield grid size:\n")
-            choice = input(" 4 5 6 7 or 8? \n")
+            choice = input(" 4 5 6 7 or 8? \n ")
             if validate_data(choice, grids):
                 break
         if choice == "":
@@ -126,7 +126,7 @@ class Player:
         ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""]
         while True:
             print(" Pick the number of Ships: ")
-            choice_ships = input("\n 1 2 3 4 5 6 or 8?\n")
+            choice_ships = input(" 1 2 3 4 5 6 or 8? \n ")
             if validate_data(choice_ships, ship_number):
                 break
         if choice_ships == "":
@@ -227,6 +227,9 @@ class GameType:
         """
         runs game type one
         """
+        print(" KEY: \n"
+              " X = Hit ship \n"
+              " - = Missed ship ")
         GameBoards.create_ships(self.player_two_ship_board)
         # while loop for when still turns left
         while self.turns > 0:
