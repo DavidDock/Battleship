@@ -227,9 +227,10 @@ class GameType:
         """
         runs game type one
         """
+        # print Key for board
         print(" KEY: \n"
               " X = Hit ship \n"
-              " - = Missed ship ")
+              " - = Missed shot ")
         GameBoards.create_ships(self.player_two_ship_board)
         # while loop for when still turns left
         while self.turns > 0:
@@ -281,7 +282,77 @@ class GameType:
         """
         runs game type two
         """
-        pass
+        # print Key for board
+        print(" KEY: \n"
+              " @ = Ship"
+              " X = Hit ship \n"
+              " - = Missed shot ")
+        # create ships for both players
+        GameBoards.create_ships(self.player_one_ship_board)
+        GameBoards.create_ships(self.player_two_ship_board)
+        # loop for whole game until end
+        while True:
+            # loop for each round of player one turn
+            while True:
+                # print relevent boards
+                GameBoards.print_board(self.player_one_guess_board)
+                GameBoards.print_board(self.player_one_ship_board)
+                # get player ones guess and check if its already been guessed
+                p1_row, p1_column \
+                    = GameBoards.get_player_guess(self.player_one_guess_board)
+                if self.player_one_guess_board.board[p1_row][p1_column] \
+                    == "-" or \
+                    self.player_one_guess_board.board[p1_row][p1_column] \
+                        == "X":
+                    print(" Those coordinates have been guessed already \n")
+                # check if shot hit a ship and update boards
+                elif self.player_two_ship_board.board[p1_row][p1_column] \
+                        == "@":
+                    print(f" {self.player_one.name} sunk a ship! \n")
+                    self.player_one_guess_board.board[p1_row][p1_column] = "X"
+                    self.player_two_ship_board.board[p1_row][p1_column] = "X"
+                    break
+                else:
+                    # update miss on boards
+                    print(f"\n {self.player_one.name} missed their shot \n")
+                    self.player_one_guess_board.board[p1_row][p1_column] = "-"
+                    self.player_two_ship_board.board[p1_row][p1_column] = "-"
+                    break
+            # check if all player twos ships have been sunk
+            if GameBoards.count_rem_ships(self.player_two_ship_board) == 0:
+                print(f" {self.player_one.name} hit all the ships!"
+                      " Congratulations, the war is won! \n")
+                break
+        # loop for player two turn
+            while True:
+                # get random guess
+                p2_row, p2_column \
+                    = randint(0, (self.player_two.size - 1)), \
+                    randint(0, (self.player_two.size - 1))
+                # loop until guess is not guessed before
+                while self.player_two_guess_board.board[p2_row][p2_column] \
+                    == "-" or \
+                        self.player_two_guess_board.board[p2_row][p2_column] \
+                        == "X":
+                    p2_row, p2_column \
+                        = randint(0, (self.player_two.size - 1)), \
+                        randint(0, (self.player_two.size - 1))
+                # check if player two hit and update boards
+                if self.player_one_ship_board.board[p2_row][p2_column] == "@":
+                    self.player_two_guess_board.board[p2_row][p2_column] = "X"
+                    self.player_one_ship_board.board[p2_row][p2_column] = "X"
+                    print(f" {self.player_two.name} sunk a ship \n")
+                    break
+                # update missed shot on boards
+                else:
+                    print(f" {self.player_two.name} missed their shot \n")
+                    self.player_two_guess_board.board[p2_row][p2_column] = '-'
+                    self.player_one_ship_board.board[p2_row][p2_column] = '-'
+                    break
+            # check if player two has sunk all ships
+            if GameBoards.count_rem_ships(self.player_one_ship_board) == 0:
+                print(f" Sorry {self.player_one.name}, the war is lost.")
+                break
 
 
 def main():
