@@ -379,12 +379,13 @@ def main():
     # create intance of game type
     game = GameType(turns, user, comp, user_ship_board, user_guess_board,
                     comp_ship_board, comp_guess_board)
+    # runs game 1 or 2 depending on choice
     if game_choice == "1":
         GameType.play_game_one(game)
     else:
         GameType.play_game_two(game)
+    # runs end game function to see if they want to play again    
     end_game()
 
 
 main()
-
