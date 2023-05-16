@@ -278,6 +278,23 @@ class GameType:
                   " You have no shots left \n")
             GameBoards.print_board(self.player_two_ship_board)
 
+    def game_two_boards(self):
+        """
+        prints two boards next to each other
+        """
+        print(f" {self.player_one.name} here are your boards ")
+        print(f"\nGuess board   {' ' * self.player_one.size} Ship board  \n")
+        print(" ", *range(1, self.player_one.size + 1), "       ",
+              *range(1, self.player_one.size + 1))
+        print(" ", "+-" * self.player_one.size, "      ",
+              "+-" * self.player_one.size)
+        row_number = 1
+        for row1, row2 in zip(self.player_one_guess_board.board,
+                              self.player_one_ship_board.board):
+            print("%d|%s|" % (row_number, "|".join(row1)), "    ", "%d|%s|"
+                  % (row_number, "|".join(row2)))
+            row_number += 1
+
     def play_game_two(self):
         """
         runs game type two
@@ -286,7 +303,7 @@ class GameType:
         print(" KEY: \n"
               " @ = Ship \n"
               " X = Hit ship \n"
-              " - = Missed shot ")
+              " - = Missed shot \n")
         # create ships for both players
         GameBoards.create_ships(self.player_one_ship_board)
         GameBoards.create_ships(self.player_two_ship_board)
@@ -295,8 +312,7 @@ class GameType:
             # loop for each round of player one turn
             while True:
                 # print relevent boards
-                GameBoards.print_board(self.player_one_guess_board)
-                GameBoards.print_board(self.player_one_ship_board)
+                GameType.game_two_boards(self)
                 # get player ones guess and check if its already been guessed
                 p1_row, p1_column \
                     = GameBoards.get_player_guess(self.player_one_guess_board)
