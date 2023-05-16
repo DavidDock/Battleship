@@ -184,7 +184,7 @@ class GameBoards:
         numbers_list = []
         for i in range(1, (self.player.size + 1)):
             numbers_list.append(str(i))
-        print("\n Where would you like to Shoot? \n")
+        print("\n Where would you like to Shoot? ")
         while True:
             row = input("\n Enter the row: \n ")
             if validate_data(row, numbers_list):
@@ -284,7 +284,7 @@ class GameType:
         """
         # print Key for board
         print(" KEY: \n"
-              " @ = Ship"
+              " @ = Ship \n"
               " X = Hit ship \n"
               " - = Missed shot ")
         # create ships for both players
@@ -351,7 +351,7 @@ class GameType:
                     break
             # check if player two has sunk all ships
             if GameBoards.count_rem_ships(self.player_one_ship_board) == 0:
-                print(f" Sorry {self.player_one.name}, the war is lost.")
+                print(f" Sorry {self.player_one.name}, the war is lost \n")
                 break
 
 
