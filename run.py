@@ -231,7 +231,6 @@ class GameType:
         # while loop for when still turns left
         while self.turns > 0:
             GameBoards.print_board(self.player_one_guess_board)
-            GameBoards.print_board(self.player_two_ship_board)
             user_row, user_column = GameBoards.get_player_guess(
                 self.player_one_guess_board)
             # check if input is guessed aleady
@@ -269,6 +268,7 @@ class GameType:
             else:
                 self.turns -= 1
                 print(f" You have {self.turns} turns remaining ")
+        # if turns are 0 inform player they loose
         if self.turns == 0:
             print(f" Sorry {self.player_one.name}, you loose the war! \n"
                   " You have no shots left \n")
