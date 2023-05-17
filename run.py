@@ -332,7 +332,7 @@ class GameType:
                     break
                 else:
                     # update miss on boards
-                    print(f"\n {self.player_one.name} missed their shot \n")
+                    print(f"\n {self.player_one.name} missed a shot \n")
                     self.player_one_guess_board.board[p1_row][p1_column] = "-"
                     self.player_two_ship_board.board[p1_row][p1_column] = "-"
                     break
@@ -363,7 +363,7 @@ class GameType:
                     break
                 # update missed shot on boards
                 else:
-                    print(f" {self.player_two.name} missed their shot \n")
+                    print(f" {self.player_two.name} missed a shot \n")
                     self.player_two_guess_board.board[p2_row][p2_column] = '-'
                     self.player_one_ship_board.board[p2_row][p2_column] = '-'
                     break
