@@ -5,8 +5,18 @@ from random import randint
 def welcome():
     """
     Prints welcome message to player
+    learnt from:
+    https://stackoverflow.com/questions/23623288/print-full-ascii-art
     """
-    print(" Welcome to BATTLESHIP\n")
+    print(r"""
+          =======         _
+         //     ||      _//
+        //      ||     |  |
+  ==========================
+  \\      WELCOME TO      //
+   \\     BATTLESHIP     //
+    ======================
+            """)
 
 
 def rules(user):
@@ -166,19 +176,19 @@ class GameBoards:
             print(" ", "%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
-    def print_two_boards(board_one, board_two):
+    def print_two_boards(self, board_two):
         """
         prints two boards next to each other
         """
-        print(f" {board_one.player.name} here are your boards: ")
-        print(f"\n {board_one.board_type}{' ' * (board_one.player.size * 2)}"
+        print(f" {self.player.name} here are your boards: ")
+        print(f"\n {self.board_type}{' ' * (self.player.size * 2)}"
               f" {board_two.board_type}  \n")
-        print("  ", *range(1, board_one.player.size + 1), " " * 11,
-              *range(1, board_one.player.size + 1))
-        print("  ", "+-" * board_one.player.size, " " * 10,
-              "+-" * board_one.player.size)
+        print("  ", *range(1, self.player.size + 1), " " * 11,
+              *range(1, self.player.size + 1))
+        print("  ", "+-" * self.player.size, " " * 10,
+              "+-" * self.player.size)
         row_number = 1
-        for row1, row2 in zip(board_one.board,
+        for row1, row2 in zip(self.board,
                               board_two.board):
             print("", "%d|%s|" % (row_number, "|".join(row1)),
                   " " * 8, "%d|%s|" % (row_number, "|".join(row2)))
@@ -344,7 +354,7 @@ class GameType:
             if GameBoards.count_rem_ships(self.player_two_ship_board) == 0:
                 print(f" {self.player_one.name} hit all the ships!"
                       " Congratulations, the war is won! \n")
-                GameBoards.print_board(self.player_two_ship_board)      
+                GameBoards.print_board(self.player_two_ship_board)
                 break
         # loop for player two turn
             while True:
