@@ -86,10 +86,14 @@ class Player:
     def get_user_name(self):
         """
         Gets user input for their name
+        makes sure name is not too long
         uses input to name player
         returns name
         """
         user_name = input(" Ok Captain what is your name? \n ")
+        while len(user_name) > 15:
+            print("\n Please choose a name with a max of 15 characters \n")
+            user_name = input()
         if user_name == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
