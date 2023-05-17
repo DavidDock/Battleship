@@ -166,17 +166,18 @@ class GameBoards:
         """
         prints two boards next to each other
         """
-        print(f" {board_one.player.name} here are your boards ")
-        print(f"\nGuess board   {' ' * board_one.player.size} Ship board  \n")
-        print(" ", *range(1, board_one.player.size + 1), "       ",
+        print(f" {board_one.player.name} here are your boards: ")
+        print(f"\n {board_one.board_type}{' ' * (board_one.player.size * 2)}"
+              f" {board_two.board_type}  \n")
+        print("  ", *range(1, board_one.player.size + 1), " " * 11,
               *range(1, board_one.player.size + 1))
-        print(" ", "+-" * board_one.player.size, "      ",
+        print("  ", "+-" * board_one.player.size, " " * 10,
               "+-" * board_one.player.size)
         row_number = 1
         for row1, row2 in zip(board_one.board,
                               board_two.board):
-            print("%d|%s|" % (row_number, "|".join(row1)), "    ", "%d|%s|"
-                  % (row_number, "|".join(row2)))
+            print("", "%d|%s|" % (row_number, "|".join(row1)),
+                  " " * 8, "%d|%s|" % (row_number, "|".join(row2)))
             row_number += 1
 
     def create_ships(self):
@@ -386,12 +387,12 @@ def main():
     Player.ships_choice(user)
     # create instances of boards for user
     user_guess_board = GameBoards(user, "Guess Board")
-    user_ship_board = GameBoards(user, "Boat Board")
+    user_ship_board = GameBoards(user, "Ship Board")
     # create instance of player for the computer
     comp = Player("The Enemy", user.size, user.ships)
     # create instances of boards for the computer
     comp_guess_board = GameBoards(comp, "Guess Board")
-    comp_ship_board = GameBoards(comp, "Boat Board")
+    comp_ship_board = GameBoards(comp, "Ship Board")
     turns = 12
     # create intance of game type
     game = GameType(turns, user, comp, user_ship_board, user_guess_board,
