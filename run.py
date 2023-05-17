@@ -162,6 +162,23 @@ class GameBoards:
             print(" ", "%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
+    def print_two_boards(self, board_one, board_two):
+        """
+        prints two boards next to each other
+        """
+        print(f" {board_one.player.name} here are your boards ")
+        print(f"\nGuess board   {' ' * board_one.player.size} Ship board  \n")
+        print(" ", *range(1, board_one.player.size + 1), "       ",
+              *range(1, board_one.player.size + 1))
+        print(" ", "+-" * board_one.player.size, "      ",
+              "+-" * board_one.player.size)
+        row_number = 1
+        for row1, row2 in zip(board_one.board,
+                              board_two.board):
+            print("%d|%s|" % (row_number, "|".join(row1)), "    ", "%d|%s|"
+                  % (row_number, "|".join(row2)))
+            row_number += 1
+
     def create_ships(self):
         """
         places relevent number of ships randomly on relevent board
@@ -278,23 +295,6 @@ class GameType:
                   " You have no shots left \n")
             GameBoards.print_board(self.player_two_ship_board)
 
-    def game_two_boards(self):
-        """
-        prints two boards next to each other
-        """
-        print(f" {self.player_one.name} here are your boards ")
-        print(f"\nGuess board   {' ' * self.player_one.size} Ship board  \n")
-        print(" ", *range(1, self.player_one.size + 1), "       ",
-              *range(1, self.player_one.size + 1))
-        print(" ", "+-" * self.player_one.size, "      ",
-              "+-" * self.player_one.size)
-        row_number = 1
-        for row1, row2 in zip(self.player_one_guess_board.board,
-                              self.player_one_ship_board.board):
-            print("%d|%s|" % (row_number, "|".join(row1)), "    ", "%d|%s|"
-                  % (row_number, "|".join(row2)))
-            row_number += 1
-
     def play_game_two(self):
         """
         runs game type two
@@ -312,7 +312,8 @@ class GameType:
             # loop for each round of player one turn
             while True:
                 # print relevent boards
-                GameType.game_two_boards(self)
+                GameBoards.print_two_boards(self, self.player_one_guess_board,
+                                            self.player_one_ship_board)
                 # get player ones guess and check if its already been guessed
                 p1_row, p1_column \
                     = GameBoards.get_player_guess(self.player_one_guess_board)
@@ -400,7 +401,7 @@ def main():
         GameType.play_game_one(game)
     else:
         GameType.play_game_two(game)
-    # runs end game function to see if they want to play again    
+    # runs end game function to see if they want to play again
     end_game()
 
 
