@@ -162,7 +162,7 @@ class GameBoards:
             print(" ", "%d|%s|" % (row_number, "|".join(row)))
             row_number += 1
 
-    def print_two_boards(self, board_one, board_two):
+    def print_two_boards(board_one, board_two):
         """
         prints two boards next to each other
         """
@@ -313,7 +313,7 @@ class GameType:
             # loop for each round of player one turn
             while True:
                 # print relevent boards
-                GameBoards.print_two_boards(self, self.player_one_guess_board,
+                GameBoards.print_two_boards(self.player_one_guess_board,
                                             self.player_one_ship_board)
                 # get player ones guess and check if its already been guessed
                 p1_row, p1_column \
@@ -340,6 +340,7 @@ class GameType:
             if GameBoards.count_rem_ships(self.player_two_ship_board) == 0:
                 print(f" {self.player_one.name} hit all the ships!"
                       " Congratulations, the war is won! \n")
+                GameBoards.print_board(self.player_two_ship_board)      
                 break
         # loop for player two turn
             while True:
@@ -370,6 +371,7 @@ class GameType:
             # check if player two has sunk all ships
             if GameBoards.count_rem_ships(self.player_one_ship_board) == 0:
                 print(f" Sorry {self.player_one.name}, the war is lost \n")
+                GameBoards.print_board(self.player_one_ship_board)
                 break
 
 
