@@ -158,6 +158,7 @@ class GameBoards:
     class for the gameboards with methods to
     print board, place ships, get users guess and count hit ships
     """
+
     def __init__(self, player, board_type):
         self.board = [[" "] * (player.size) for i in range((player.size))]
         self.player = player
@@ -200,10 +201,10 @@ class GameBoards:
         """
         for _ in range(self.player.ships):
             row, column = randint(0, (self.player.size - 1)),\
-                          randint(0, (self.player.size - 1))
+                randint(0, (self.player.size - 1))
             while self.board[row][column] == "@":
                 row, column = randint(0, (self.player.size - 1)),\
-                              randint(0, (self.player.size - 1))
+                    randint(0, (self.player.size - 1))
             self.board[row][column] = "@"
         return self.board
 
@@ -244,6 +245,7 @@ class GameType:
     class for game type
     methods for each game type
     """
+
     def __init__(self, turns, player_one, player_two, player_one_boat_board,
                  player_one_guess_board, player_two_boat_board,
                  player_two_guess_board):
@@ -286,8 +288,7 @@ class GameType:
                 print(f" {self.player_one.name} missed! \n")
                 self.player_one_guess_board.board[user_row][user_column] = "-"
             # check if player has hit all ships
-            if GameBoards.count_rem_ships(self.player_two_ship_board) \
-                    == 0:
+            if GameBoards.count_rem_ships(self.player_two_ship_board) == 0:
                 print(f" {self.player_one.name} hit all the ships!"
                       " Congratulations, the war is won! \n")
                 GameBoards.print_board(self.player_two_ship_board)
