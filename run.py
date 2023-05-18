@@ -104,7 +104,7 @@ class Player:
         while len(user_name) > 15:
             print("\n Please choose a name with a max of 15 characters \n")
             user_name = input()
-        if user_name == "":
+        if user_name.strip() == "":
             user_name = "lazy bones"
         self.name = user_name.upper()
         return self.name
