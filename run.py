@@ -198,7 +198,7 @@ class GameBoards:
         """
         places relevent number of ships randomly on relevent board
         """
-        for ship in range(self.player.ships):
+        for _ in range(self.player.ships):
             row, column = randint(0, (self.player.size - 1)),\
                           randint(0, (self.player.size - 1))
             while self.board[row][column] == "@":
