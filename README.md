@@ -1,5 +1,7 @@
 # Battleship! 
 
+Visit the deployed site: [Battleship](https://battleship-ddocksey.herokuapp.com/)
+
 ## CONTENTS
 
 * [User Experience](#user-experience)
@@ -32,7 +34,7 @@
 
 ### Flowcharts  
 
-I created three flowcharts. One show the running of the whole game and one each for the different game types:
+I created three flowcharts. One  to show the running of the whole game and one each for the different game types:
 
 ![Flowchart for the whole game](assets/media/battleship_flowchart.jpeg)  
 
