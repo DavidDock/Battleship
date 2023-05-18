@@ -9,9 +9,9 @@ def welcome():
     https://stackoverflow.com/questions/23623288/print-full-ascii-art
     """
     print(r"""
-          =======         _
-         //     ||      _//
-        //      ||     |  |
+         =======         _
+        //     ||      _//
+       //      ||     |  |
   ==========================
   \\      WELCOME TO      //
    \\     BATTLESHIP     //
