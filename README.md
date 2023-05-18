@@ -81,8 +81,28 @@ I chose to create three classes for this game:
 * This creates an instance for each type of game. With attributes of amount of turns, each player created and each board created.
 * The methods in this class are game type one and game type two, running the relevant game chosen by the user.
 
-## Deployment
+## Deployment  
+The steps to deploy using [Heroku](https://id.heroku.com/login): 
+* Select new in the top right corner of the dashboard and create new app on dropdown menu.
+* Name the app and choose region and select create app.
+* In the created app's settings click reveal Config Vars and set value to PORT and KEY to 8000 and select add.
+* This app did not require any other Config Variables to add.
+* Below Config Vars select Add Buildpack and select Python and then Node.js making sure the two are in that order.
+* Go to deploy section and choose github as deployment method, this will connect to github then connect the correct repository.
+* Then you can either select Automatic deploy or deploy manually and click deploy branch.
+* The app will then be deployed.
+* This game had no additional dependincies that needed to be added to the requirements.txt file but if it did you'd need to type into the terminal pip3 freeze requirements.txt to update it.
 
+To Fork the repository:  
+* In Github go to the repository [https://github.com/DavidDock/Battleship](https://github.com/DavidDock/Battleship).
+* Click the fork button in the top right corner.  
+
+To Clone the repository:  
+* In Github go to the repository [https://github.com/DavidDock/Battleship](https://github.com/DavidDock/Battleship).
+*  Click the Code button and select if you'd like to clone with HTTPS, SSH or Github CLI and copy the link underneath.
+* Open your terminal in your code editor and change the working directory to the location you want to use for the cloned directory.
+* Type 'git clone', paste the link you copied and press enter.
+* If using the code institute template there will be no need to set up the virtual environment.
 ## Testing
 Please refer to [TESTING.MD](TESTING.md)  
 
