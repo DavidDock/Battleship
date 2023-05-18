@@ -97,6 +97,7 @@ class Player:
         """
         Gets user input for their name
         makes sure name is not too long
+        if name is blank, give user a name
         uses input to name player
         returns name
         """

@@ -51,22 +51,39 @@ I created three flowcharts. One  to show the running of the whole game and one e
 
 ![Flowchart for game type two](assets/media/game_type_two.jpeg)  
 
-## Design
+## Design  
+This game is based inside a mock terminal deployed via Heroku and has basic design. I have added a welcome image using ASCII art.
 
 ## Features  
 
 ### Languages Used  
-
 Python
 
-### Future Implementations
+### Future Implementations  
+* Add the option for the user to place their ships.
+* Add a variation of ship sizes.
+* Create a multiplayer game where two humans take turns.
 
-## Data Model
+## Data Model  
+I chose to create three classes for this game:  
+
+1. Player Class
+* This creates instances for the players. With attributes of name, size of battlefield grid and amount of ships.
+* The methods in this class names the player, allows the player to choose battlefield grid size and amount of ships.
+* In this game a user instance and a computer instance are created for each time you play. The user is created once you enter your name.  
+
+2. GameBoards Class:
+* This creates instances for each board required. With attributes of the player (created in the Player class) and board type.
+* The methods in this class are printing one or two boards, creating ships on the board, getting the players shot coordinates and counting remaining ships on the board.
+* In this game four boards are created. A ship board and a guess board for both the user and computer.
+
+3. GameType class:
+* This creates an instance for each type of game. With attributes of amount of turns, each player created and each board created.
+* The methods in this class are game type one and game type two, running the relevant game chosen by the user.
 
 ## Deployment
 
 ## Testing
-
 Please refer to [TESTING.MD](TESTING.md)  
 
 ## Credits
