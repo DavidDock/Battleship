@@ -359,7 +359,7 @@ class GameType:
                       " Congratulations, the war is won! \n")
                 GameBoards.print_board(self.player_two_ship_board)
                 break
-        # loop for player two turn
+            # loop for player two turn
             while True:
                 # get random guess
                 p2_row, p2_column \
