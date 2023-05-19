@@ -4,8 +4,9 @@ from random import randint
 
 def welcome():
     """
-    Prints welcome message to player
-    learnt from:
+    Prints welcome message to player.
+
+    Learnt from:
     https://stackoverflow.com/questions/23623288/print-full-ascii-art
     """
     print(r"""
@@ -21,7 +22,10 @@ def welcome():
 
 def rules(user):
     """
-    describes rules for each game type
+    Describes rules for each game type.
+
+    Parameters:
+    user: user is an instance created in Player class
     """
     print(f"\n {user.name} you are at WAR! \n"
           " Battle the enemy and sink their ships\n\n"
@@ -34,7 +38,16 @@ def rules(user):
 
 def validate_data(data, data_list):
     """
-    function to validate player input
+    Function to validate player input.
+
+    Inspired by codes institutes love sandwiches walkthrough.
+
+    Parameters:
+    data: data  that needs to be checked if valid
+    data_list: a list of valid data
+
+    Returns:
+    True or false: Returns true if data is valid and false if invalid
     """
     try:
         if data not in data_list:
@@ -48,9 +61,10 @@ def validate_data(data, data_list):
 
 def choose_game():
     """
-    get player to choose game type
-    validate input
-    return choice
+    Get player to choose game type and validate input.
+
+    Returns:
+    game_pick: The choice of game type
     """
     game_choices = ["1", "2"]
     while True:
@@ -63,10 +77,12 @@ def choose_game():
 
 def end_game():
     """
-    function for end of game
-    ask player if they want to play again
-    validate input
-    either play game again or say goodbye depending on input
+    Function for end of game.
+    
+    Asks player if they want to play again and validates input.
+    
+    Returns:
+    Either plays the game again or says goodbye depending on input.
     """
     end_choices = ["Y", "N"]
     while True:
@@ -81,13 +97,23 @@ def end_game():
 
 class Player:
     """
-    class for player with methods to
-    get name, grid size and  number of ships
+    Class for player with methods to
+    get name, grid size and  number of ships.
+
+    Attributes:
+        name: The Players name.
+        size: The size of battlefield grid.
+        ships: The amount of ships in game.
     """
 
     def __init__(self, name, size, ships):
         """
-        create player
+        The constructor for Player class.
+
+        Parameters:
+            name: The Players name.
+            size: The size of battlefield grid.
+            ships: The amount of ships in game.
         """
         self.name = name
         self.size = size
@@ -95,11 +121,16 @@ class Player:
 
     def get_user_name(self):
         """
-        Gets user input for their name
-        makes sure name is not too long
-        if name is blank, give user a name
-        uses input to name player
-        returns name
+        Gets user input for their name and names Player.
+
+        Makes sure name is not too long and
+        if name is blank, it gives user a name.
+        
+        Parameters:
+            self: Player instance.
+
+        Returns:
+            name: New name for Player.
         """
         user_name = input(" Ok Captain what is your name? \n ")
         while len(user_name) > 15:
@@ -112,10 +143,13 @@ class Player:
 
     def size_choice(self):
         """
-        Gets user input for grid size
-        validates input
-        uses input to alocate players size
-        returns size
+        Gets user input for grid size, validates input and updates Players size.
+
+        Parameters:
+            self: Player instance.
+
+        Returns:
+            size: New size for Player.
         """
         grids = ["4", "5", "6", "7", "8", ""]
         while True:
@@ -133,10 +167,13 @@ class Player:
 
     def ships_choice(self):
         """
-        get user to choose amount of ships
-        validate input
-        uses input to alocate ships to player
-        returns ships
+        Gets user input for ship amount, validates input and updates Players ships.
+
+        Parameters:
+            self: Player instance.
+
+        Returns:
+            ships: New ships for Player.
         """
         ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""]
         while True:
@@ -156,19 +193,39 @@ class Player:
 
 class GameBoards:
     """
-    class for the gameboards with methods to
-    print board, place ships, get users guess and count hit ships
+    Class for the gameboards with methods to
+    print board, place ships, get users guess and count hit ships.
+
+    Attributes:
+        board: The board list of lists the size of the players size choice.
+        player: The player created in Player class.
+        board_type: The type of board, either guess board or ship board.
     """
 
     def __init__(self, player, board_type):
+        """
+        The constructor for GameBoards class.
+
+        Parameters:
+           board: The boards list of empty lists the size of the players size choice.
+            player: The player created in Player class.
+            board_type: The type of board, either guess board or ship board.
+        """
         self.board = [[" "] * (player.size) for i in range((player.size))]
         self.player = player
         self.board_type = board_type
 
     def print_board(self):
         """
-        prints the relevent board
+        Prints the relevent board.
+
         technique learnt from https://www.youtube.com/watch?v=tF1WRCrd_HQ
+
+        Parameters:
+            self: GameBoards instance.
+
+        Returns:
+            Prints the board to the terminal.
         """
         print(f"\n {self.player.name}'s {self.board_type} \n")
         print("   ", *range(1, self.player.size + 1))
@@ -180,7 +237,14 @@ class GameBoards:
 
     def print_two_boards(self, board_two):
         """
-        prints two boards next to each other
+        Prints two boards next to each other.
+
+        Parameters:
+            self: GameBoards instance.
+            board_two: Second required Gameboards instance.
+
+        Returns:
+            Prints two boards to the terminal.
         """
         print(f" {self.player.name} here are your boards: ")
         print(f"\n {self.board_type}"
@@ -199,7 +263,13 @@ class GameBoards:
 
     def create_ships(self):
         """
-        places relevent number of ships randomly on relevent board
+        Places relevent number of Player ships randomly on Player board.
+
+        Parameters:
+            self: GameBoards instance.
+
+        Returns:
+            self.board: New board marked with ships.
         """
         for _ in range(self.player.ships):
             row, column = randint(0, (self.player.size - 1)),\
@@ -212,9 +282,13 @@ class GameBoards:
 
     def get_player_guess(self):
         """
-        get input from user for row and column guess
-        validate input against possible numbers
-        return row and column
+        Gets input from user for row and column guess and validates data.
+        
+        Parameters:
+            self: GameBoards instance.
+
+        Returns:
+            row, column: Users guess for row and column.
         """
         numbers_list = []
         for i in range(1, (self.player.size + 1)):
@@ -232,7 +306,13 @@ class GameBoards:
 
     def count_rem_ships(self):
         """
-        count how many remaining ships(@) are on the board
+        Counts how many remaining ships(@) are on the board.
+
+        Parameters:
+            self: GameBoards instance.
+
+        Returns:
+            remaining_ships: Ships(@) left on the board.
         """
         remaining_ships = 0
         for row in self.board:
@@ -244,24 +324,50 @@ class GameBoards:
 
 class GameType:
     """
-    class for game type
-    methods for each game type
+    Class for the GameType with methods to playe type one or two.
+
+    Attributes:
+        turns: Number of shots in the game.
+        player_one: The player created in Player class.
+        player_two: Player two created in Player class.
+        player_one_ship_board: Player ones ship board created in GameBoards Class.
+        player_one_guess_board: Player ones guess board created in GameBoards Class.
+        player_two_ship_board: Player twos ship board created in GameBoards Class.
+        player_two_guess_board: Player twos guess board created in GameBoards Class.
     """
 
-    def __init__(self, turns, player_one, player_two, player_one_boat_board,
-                 player_one_guess_board, player_two_boat_board,
+    def __init__(self, turns, player_one, player_two, player_one_ship_board,
+                 player_one_guess_board, player_two_ship_board,
                  player_two_guess_board):
+        """
+        The constructor for GameType class.
+
+        Parameters:
+        turns: Number of shots in the game. 
+        player_one: The player created in Player class.
+        player_two: Player two created in Player class.
+        player_one_ship_board: Player ones ship board created in GameBoards Class.
+        player_one_guess_board: Player ones guess board created in GameBoards Class.
+        player_two_ship_board: Player twos ship board created in GameBoards Class.
+        player_two_guess_board: Player twos guess board created in GameBoards Class.
+        """
         self.turns = turns
         self.player_one = player_one
         self.player_two = player_two
-        self.player_one_ship_board = player_one_boat_board
+        self.player_one_ship_board = player_one_ship_board
         self.player_one_guess_board = player_one_guess_board
-        self.player_two_ship_board = player_two_boat_board
+        self.player_two_ship_board = player_two_ship_board
         self.player_two_guess_board = player_two_guess_board
 
     def play_game_one(self):
         """
-        runs game type one
+        Runs game type one.
+
+        Parameters:
+            self: GameType instance.
+
+        Returns:
+            Leaves the loop when game is finished.
         """
         # print Key for board
         print(" KEY: \n"
@@ -315,7 +421,13 @@ class GameType:
 
     def play_game_two(self):
         """
-        runs game type two
+        Runs game type two.
+
+        Parameters:
+            self: GameType instance.
+
+        Returns:
+            Leaves the loop when game is finished
         """
         # print Key for board
         print(" KEY: \n"
