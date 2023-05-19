@@ -181,7 +181,8 @@ class GameBoards:
         prints two boards next to each other
         """
         print(f" {self.player.name} here are your boards: ")
-        print(f"\n {self.board_type}{' ' * (self.player.size * 2)}"
+        print(f"\n {self.board_type}"
+              f"{' ' * (self.player.size * 2)}"
               f" {board_two.board_type}  \n")
         print("  ", *range(1, self.player.size + 1), " " * 11,
               *range(1, self.player.size + 1))
