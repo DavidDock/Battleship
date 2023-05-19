@@ -112,8 +112,9 @@ The code used for this project was taught to me by code insitute. Code Insitutes
 
 ### New learning
 
-To gain a greater understanding I also watched Knowledge Mavens Battleship tutorial videos, [How to Code Battleship in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) and [Python Battleship with Object Oriented Programming](https://www.youtube.com/watch?v=alJH_c9t4zw). They used slightly different techniques but I found it helped me understand each function required. It particularly helped with the method I used to print the board, further learnt on [stackoverflow %s and %d python](https://stackoverflow.com/questions/4288973/whats-the-difference-between-s-and-d-in-python-string-formatting).
-I also found [stackoverflow print ascili art](https://stackoverflow.com/questions/23623288/print-full-ascii-art) useful for creating my welcome message.  
+To gain a greater understanding I also watched Knowledge Mavens Battleship tutorial videos, [How to Code Battleship in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) and [Python Battleship with Object Oriented Programming](https://www.youtube.com/watch?v=alJH_c9t4zw). I found it really helped me understand each function required. It particularly helped with the method I used to print the board, further learnt on [Stackoverflow](https://stackoverflow.com/questions/4288973/whats-the-difference-between-s-and-d-in-python-string-formatting).
+I also found [Stackoverflow](https://stackoverflow.com/questions/23623288/print-full-ascii-art) useful for creating my welcome message.  
+As per my mentors advice I learnt about best practices on writing Docstrings from [https://www.geeksforgeeks.org/python-docstrings/](https://www.geeksforgeeks.org/python-docstrings/) and implemented this learning into my Docstring writing.
 
 ## Content and Media  
 
