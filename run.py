@@ -78,9 +78,9 @@ def choose_game():
 def end_game():
     """
     Function for end of game.
-    
+
     Asks player if they want to play again and validates input.
-    
+
     Returns:
     Either plays the game again or says goodbye depending on input.
     """
@@ -125,7 +125,7 @@ class Player:
 
         Makes sure name is not too long and
         if name is blank, it gives user a name.
-        
+
         Parameters:
             self: Player instance.
 
@@ -143,7 +143,7 @@ class Player:
 
     def size_choice(self):
         """
-        Gets user input for grid size, validates input and updates Players size.
+        Gets user input for grid size, validates and updates Players size.
 
         Parameters:
             self: Player instance.
@@ -167,7 +167,7 @@ class Player:
 
     def ships_choice(self):
         """
-        Gets user input for ship amount, validates input and updates Players ships.
+        Gets user input for ship amount, validates and updates Players ships.
 
         Parameters:
             self: Player instance.
@@ -207,7 +207,7 @@ class GameBoards:
         The constructor for GameBoards class.
 
         Parameters:
-           board: The boards list of empty lists the size of the players size choice.
+            board: A list of empty lists the size of players size choice.
             player: The player created in Player class.
             board_type: The type of board, either guess board or ship board.
         """
@@ -283,7 +283,7 @@ class GameBoards:
     def get_player_guess(self):
         """
         Gets input from user for row and column guess and validates data.
-        
+
         Parameters:
             self: GameBoards instance.
 
@@ -330,10 +330,14 @@ class GameType:
         turns: Number of shots in the game.
         player_one: The player created in Player class.
         player_two: Player two created in Player class.
-        player_one_ship_board: Player ones ship board created in GameBoards Class.
-        player_one_guess_board: Player ones guess board created in GameBoards Class.
-        player_two_ship_board: Player twos ship board created in GameBoards Class.
-        player_two_guess_board: Player twos guess board created in GameBoards Class.
+        player_one_ship_board:
+            Player ones ship board created in GameBoards Class.
+        player_one_guess_board:
+            Player ones guess board created in GameBoards Class.
+        player_two_ship_board:
+            Player twos ship board created in GameBoards Class.
+        player_two_guess_board:
+            Player twos guess board created in GameBoards Class.
     """
 
     def __init__(self, turns, player_one, player_two, player_one_ship_board,
@@ -343,13 +347,17 @@ class GameType:
         The constructor for GameType class.
 
         Parameters:
-        turns: Number of shots in the game. 
+        turns: Number of shots in the game.
         player_one: The player created in Player class.
         player_two: Player two created in Player class.
-        player_one_ship_board: Player ones ship board created in GameBoards Class.
-        player_one_guess_board: Player ones guess board created in GameBoards Class.
-        player_two_ship_board: Player twos ship board created in GameBoards Class.
-        player_two_guess_board: Player twos guess board created in GameBoards Class.
+        player_one_ship_board:
+            Player ones ship board created in GameBoards Class.
+        player_one_guess_board:
+            Player ones guess board created in GameBoards Class.
+        player_two_ship_board:
+            Player twos ship board created in GameBoards Class.
+        player_two_guess_board:
+            Player twos guess board created in GameBoards Class.
         """
         self.turns = turns
         self.player_one = player_one
