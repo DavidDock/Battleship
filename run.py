@@ -514,7 +514,9 @@ class GameType:
 
 def main():
     """
-    runs the whole game
+    Runs the whole game.
+
+    Creates relevant instances and calles all functions needed.
     """
     welcome()
     user = Player("", 0, 0)
