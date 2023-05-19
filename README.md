@@ -107,3 +107,14 @@ To Clone the repository:
 Please refer to [TESTING.MD](TESTING.md)  
 
 ## Credits
+### Learning  
+The code used for this project was taught to me by code insitute. Code Insitutes project run through 'love sandwiches' helped me greatly with the concepts needed in my project including deploying the site with Heroku and creating a seperate function to validate data. Code insitutes scope video for battleship also helped me understand the concept of building the game and the use of classes.
+
+### New learning
+
+To gain a greater understanding I also watched Knowledge Mavens Battleship tutorial videos, [How to Code Battleship in Python](https://www.youtube.com/watch?v=tF1WRCrd_HQ) and [Python Battleship with Object Oriented Programming](https://www.youtube.com/watch?v=alJH_c9t4zw). They used slightly different techniques but I found it helped me understand each function required. It particularly helped with the method I used to print the board, further learnt on [stackoverflow %s and %d python](https://stackoverflow.com/questions/4288973/whats-the-difference-between-s-and-d-in-python-string-formatting).
+I also found [stackoverflow print ascili art](https://stackoverflow.com/questions/23623288/print-full-ascii-art) useful for creating my welcome message.  
+
+## Content and Media  
+
+* My flowcharts were made using [lucid](https://lucid.app/).
