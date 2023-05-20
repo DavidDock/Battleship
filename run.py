@@ -369,7 +369,7 @@ class GameType:
         # print Key for board
         print(" KEY: \n"
               " X = Hit ship \n"
-              " - = Missed shot ")
+              " - = Missed shot \n ")
         GameBoards.create_ships(self.player_two_ship_board)
         # while loop for when still turns left
         while True:
