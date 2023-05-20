@@ -156,10 +156,10 @@ class Player:
             if validate_data(choice, grids):
                 break
         if choice == "":
-            print(" Ok The computer will pick for you\n")
+            print("\n Ok The computer will pick for you\n")
             self.size = randint(4, 8)
             return self.size
-        print(f" You picked battlefield grid size {choice}\n")
+        print(f"\n You picked battlefield grid size {choice}\n")
         self.size = int(choice)
         return self.size
 
