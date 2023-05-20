@@ -372,7 +372,7 @@ class GameType:
               " X = Hit ship \n"
               " - = Missed shot \n ")
         GameBoards.create_ships(self.player_two_ship_board)
-        # while loop for when still turns left
+        # while loop for while no result reached
         while True:
             GameBoards.print_board(self.player_one_guess_board)
             user_row, user_column = GameBoards.get_player_guess(
