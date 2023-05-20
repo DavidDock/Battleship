@@ -372,7 +372,7 @@ class GameType:
               " - = Missed shot ")
         GameBoards.create_ships(self.player_two_ship_board)
         # while loop for when still turns left
-        while self.turns > 0:
+        while True:
             GameBoards.print_board(self.player_one_guess_board)
             user_row, user_column = GameBoards.get_player_guess(
                 self.player_one_guess_board)
@@ -400,7 +400,7 @@ class GameType:
                 GameBoards.print_board(self.player_two_ship_board)
                 print("\n")
                 break
-            # check if player has enough turns left to win
+            # check if player has enough shots left to win
             elif self.turns - 1 < \
                     GameBoards.count_rem_ships(self.player_two_ship_board):
                 print(f" Sorry {self.player_one.name}, you loose the war! \n"
@@ -411,11 +411,6 @@ class GameType:
             else:
                 self.turns -= 1
                 print(f" You have {self.turns} turns remaining ")
-        # if turns are 0 inform player they loose
-        if self.turns == 0:
-            print(f" Sorry {self.player_one.name}, you loose the war! \n"
-                  " You have no shots left \n")
-            GameBoards.print_board(self.player_two_ship_board)
 
     def play_game_two(self):
         """
