@@ -368,6 +368,7 @@ class GameType:
         """
         # print Key for board
         print(" KEY: \n"
+              " @ = Ship \n"
               " X = Hit ship \n"
               " - = Missed shot \n ")
         GameBoards.create_ships(self.player_two_ship_board)
