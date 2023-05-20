@@ -392,6 +392,7 @@ class GameType:
             else:
                 print(f" {self.player_one.name} missed! \n")
                 self.player_one_guess_board.board[user_row][user_column] = "-"
+                self.player_two_ship_board.board[user_row][user_column] = "-"
             # check if player has hit all ships
             if GameBoards.count_rem_ships(self.player_two_ship_board) == 0:
                 print(f" {self.player_one.name} hit all the ships!"
@@ -464,6 +465,7 @@ class GameType:
                 print(f" {self.player_one.name} hit all the ships!"
                       " Congratulations, the war is won! \n")
                 GameBoards.print_board(self.player_two_ship_board)
+                print("\n")
                 break
             # loop for player two turn
             while True:
