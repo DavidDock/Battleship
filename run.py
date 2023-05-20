@@ -68,7 +68,7 @@ def choose_game():
     """
     game_choices = ["1", "2"]
     while True:
-        game_pick = input(" Pick your Game: 1 or 2? \n ")
+        game_pick = input(" Pick your Game: 1 or 2? \n ").strip()
         if validate_data(game_pick, game_choices):
             break
     print(f"\n You picked Game {game_pick} \n")
@@ -84,7 +84,7 @@ def end_game():
     """
     end_choices = ["Y", "N"]
     while True:
-        end_choice = input(" Play again?: Y or N \n ").upper()
+        end_choice = input(" Play again?: Y or N \n ").strip().upper()
         if validate_data(end_choice, end_choices):
             break
     if end_choice == "Y":
@@ -130,13 +130,13 @@ class Player:
         Returns:
             name(str): New name for Player.
         """
-        user_name = input(" Ok Captain what is your name? \n ")
+        user_name = input(" Ok Captain what is your name? \n ").strip().upper()
         while len(user_name) > 15:
             print("\n Please choose a name with a max of 15 characters \n")
-            user_name = input()
-        if user_name.strip() == "":
-            user_name = "lazy bones"
-        self.name = user_name.upper()
+            user_name = input().strip().upper
+        if user_name == "":
+            user_name = "LAZY BONES"
+        self.name = user_name
         return self.name
 
     def size_choice(self):
@@ -152,7 +152,7 @@ class Player:
         grids = ["4", "5", "6", "7", "8", ""]
         while True:
             print("\n Pick your battlefield grid size:\n")
-            choice = input(" 4 5 6 7 or 8? \n ")
+            choice = input(" 4 5 6 7 or 8? \n ").strip()
             if validate_data(choice, grids):
                 break
         if choice == "":
@@ -176,7 +176,7 @@ class Player:
         ship_number = ["1", "2", "3", "4", "5", "6", "7", "8", ""]
         while True:
             print(" Pick the number of Ships: ")
-            choice_ships = input(" 1 2 3 4 5 6 or 8? \n ")
+            choice_ships = input(" 1 2 3 4 5 6 or 8? \n ").strip()
             if validate_data(choice_ships, ship_number):
                 break
         if choice_ships == "":
@@ -287,11 +287,11 @@ class GameBoards:
             numbers_list.append(str(i))
         print("\n Where would you like to Shoot? ")
         while True:
-            row = input("\n Enter the row: \n ")
+            row = input("\n Enter the row: \n ").strip()
             if validate_data(row, numbers_list):
                 break
         while True:
-            column = input("\n Enter the column: \n ")
+            column = input("\n Enter the column: \n ").strip()
             if validate_data(column, numbers_list):
                 break
         return int(row) - 1, int(column) - 1
