@@ -151,15 +151,15 @@ class Player:
         """
         grids = ["4", "5", "6", "7", "8", ""]
         while True:
-            print("\n Pick your battlefield grid size:\n")
+            print(" Pick your battlefield grid size:\n")
             choice = input(" 4 5 6 7 or 8? \n ").strip()
             if validate_data(choice, grids):
                 break
         if choice == "":
-            print(" Ok The computer will pick for you\n")
+            print("\n Ok The computer will pick for you\n")
             self.size = randint(4, 8)
             return self.size
-        print(f" You picked battlefield grid size {choice}\n")
+        print(f"\n You picked battlefield grid size {choice}\n")
         self.size = int(choice)
         return self.size
 
@@ -180,7 +180,7 @@ class Player:
             if validate_data(choice_ships, ship_number):
                 break
         if choice_ships == "":
-            print(" Ok no worries")
+            print("\n Ok no worries")
             print(" Let's make it easy, there is only 1 Ship to destroy\n")
             self.ships = int(1)
             return self.ships
@@ -493,6 +493,7 @@ class GameType:
             if GameBoards.count_rem_ships(self.player_one_ship_board) == 0:
                 print(f" Sorry {self.player_one.name}, the war is lost \n")
                 GameBoards.print_board(self.player_one_ship_board)
+                print("\n")
                 break
 
 
