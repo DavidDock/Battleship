@@ -121,7 +121,7 @@ class Player:
         """
         Gets user input for their name and names Player.
 
-        Makes sure name is not too long and
+        Makes sure name is not too long or same as computer.
         if name is blank, it gives user a name.
 
         Parameters:
@@ -130,12 +130,19 @@ class Player:
         Returns:
             name(str): New name for Player.
         """
-        user_name = input(" Ok Captain what is your name? \n ").strip().upper()
-        while len(user_name) > 15:
-            print("\n Please choose a name with a max of 15 characters \n")
-            user_name = input().strip().upper
-        if user_name == "":
-            user_name = "LAZY BONES"
+        while True:
+            user_name \
+                = input(" Ok Captain what is your name? \n ").strip().upper()
+            if len(user_name) > 15:
+                print("\n Please choose a name with a max of 15 characters \n")
+            elif user_name == "THE ENEMY":
+                print("\n The computer has picked that,"
+                      " please choose another name \n")
+            elif user_name == "":
+                user_name = "LAZY BONES"
+                break
+            else:
+                break
         self.name = user_name
         return self.name
 
