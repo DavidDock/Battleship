@@ -66,24 +66,69 @@ This game is based inside a mock terminal deployed via Heroku and has basic desi
 ## Features  
 
 ### Name Input and Rules  
+Here a welcome message is displayed and the user is asked for their name. 
+If [valid](#validate-inputs) it will be displayed along with the rules of the two different games avaliable.  
+If the user gives a blank input the name LAZY BONES will be given.  
+
 ![Welcome](assets/media/welcome.png)
 
 ### Game Choices  
+This asks the user to choose game type 1 or 2, battlefield grid size and amount of ships on the board.  
+There are two game type choices, the grid can be 4-8 squared  and 1-8 ships can be picked.  
+Each choice is checked if it is a [Valid input](#validate-inputs) then the game wil start.  
+If the user gives a blank input for grid size a random size will be given.  
+A blank input for ship number gives just one ship.  
+The user will be informed of what choice they have made or been given.  
+See below for choices given and what happens if you leave grid and ship choice blank.  
+
 ![Choices](assets/media/choices.png)
 
-### Start of Game  
+### Start of Game   
+Before the guessing starts the Key for the game is displayed along with relevent boards for the chosen game.  
+Game one prints just the user guess board, game two prints the user guess and ship board.  
+See below for examples.  
+
 ![Start](assets/media/start.png)
 
 ### Game One   
+The user has 12 shots to sink the computers ships on their board.  
+The user enters their coordinate guess which is then checked if it is [valid](#validate-inputs) or guessed before, if so they will be asked to guess again.   
+If it is a valid guess the computer board is then checked if the shot is a hit of a miss and the relevant x or - is marked on the user guess board and computer board. A message to user informing them if they hit or missed will be displayed.  
+The remaining ships left on the computers board will then be counted and if there are none left the winning message along with the computer board will be displayed and the user will be given the option to play again.  
+If there are ships remaining it will be checked if the user has enough shots left to win. If there are not enough shots a looser message and computer board will be displayed and an option to play agin given.  
+If the user has enough shots they will take another shot.  
+See below examples of game one with hit/miss/winner and looser messages.  
+
+
 ![Game One](assets/media/game_one.png)
 
 ### Game Two  
+The user then computer take turns to shoot to see who sinks each others ships first.  
+The user enters their coordinates guess whick is checked if it is [valid](#validate-inputs) or guessed before, if so they will be asked to guess again.  
+If the shot is a hit or miss the relevant X or - is marked on the user guess board and computer ship board and a sutable message to the user is displayed.  
+The remaining computer ships are then counted and if there are none left the winner message and computer ship board will be displayed along with an option to play again.  
+If there are ships remaining its the computers shot which generates a random coordinate guess. This guess is then marked on their guess board and user ship board with relevent message displyed.  
+The remaining ships are then checked on the user ship board, if none left the looser message and user ship board will be displayed and again the option given to play again.  
+If there are ships still remaining it goes back to the users shot.  
+See below example images of game two with hits/misses/ winning and loosing messages.  
+
 ![Game Two](assets/media/game_two.png)
 
 ### Play Again  
+After the game is won or lost the user will ne given an option to play again or end game by inputting Y or N.  
+This input will be checked if [valid](#validate-inputs), if Y is picked the whole game will run again and if N picked a thanks for playing message will be displayed and game will end.
+
 ![Play Again](assets/media/play_again.png)
 
 ### Validate Inputs  
+All inputs are checked if they are valid. A function was created to check if the input given is within valid input choices allowed.  
+All inputs have their whitespace either sides removed incase of keyboard error. All strings are turned into uppercase for the same reason.  
+For the user name input I have chosen to limit it to 15 characters to maintain screen readability. I allowed the user to use numbers and symbols, except whitespace at the start because this does not look right during the game.  
+If the user enters nothing/blank  for the battlefield grid choice they are given a random size.  
+If the user enters nothing/blank for the ship number choice they are given only one ship.  
+All of the inputs have been thoroughly tested and documented in the [TESTING.md](TESTING.md)
+See below for examples of invalid input messages.  
+
 ![Invalid Input](assets/media/invalid_input.png)
 
 ### Languages Used  
