@@ -10,7 +10,7 @@ I used [CI Python Linter](https://pep8ci.herokuapp.com/) throughout development 
 
 ### Final Test Results
 
-![PEP8 Linter](assets/media/pep8_linter.PNG)  
+![PEP8 Linter](assets/media/pep8_linter.png)  
 
 ## General Bugs and Fixes Throughout Development  
 

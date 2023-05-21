@@ -3,6 +3,8 @@ This is a computerised variation of the classic board game Battleship.
 You attempt to win the war by sinking all the enemy's ships, More information about the history of the game can be found here on [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).  
 This version of the game lets you choose battlefield grid size, amount of ships and provides you the choice of two game types.
 
+![Title](assets/media/title.png)
+
 Visit the deployed site: [Battleship](https://battleship-ddocksey.herokuapp.com/)
 
 ## CONTENTS
@@ -63,19 +65,26 @@ This game is based inside a mock terminal deployed via Heroku and has basic desi
 
 ## Features  
 
-### Name Input and Rules
+### Name Input and Rules  
+![Welcome](assets/media/welcome.png)
 
-### Game Choices
+### Game Choices  
+![Choices](assets/media/choices.png)
 
-### Start of Game
+### Start of Game  
+![Start](assets/media/start.png)
 
-### Game One 
+### Game One   
+![Game One](assets/media/game_one.png)
 
-### Game Two
+### Game Two  
+![Game Two](assets/media/game_two.png)
 
-### Play Again
+### Play Again  
+![Play Again](assets/media/play_again.png)
 
-### Validate Inputs
+### Validate Inputs  
+![Invalid Input](assets/media/invalid_input.png)
 
 ### Languages Used  
 Python
