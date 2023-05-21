@@ -304,7 +304,7 @@ class GameBoards:
             self: GameBoards instance.
 
         Returns:
-            remaining_ships(1): Ships(@) left on the board.
+            remaining_ships(int): Ships(@) left on the board.
         """
         remaining_ships = 0
         for row in self.board:
