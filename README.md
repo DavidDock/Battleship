@@ -13,6 +13,13 @@ Visit the deployed site: [Battleship](https://battleship-ddocksey.herokuapp.com/
   * [Flowcharts](#flowcharts)
 
 * [Features](#features)
+  * [Name Input and Rules](#name-input-and-rules)
+  * [Game Choices](#game-choices)
+  * [Start of Game](#start-of-game)
+  * [Game One](#game-one)
+  * [Game Two](#game-two)
+  * [Play Again?](#play-again)
+  * [Validate Inputs](#validate-inputs)
   * [Languages Used](#languages-used)
   * [Future Implementations](#future-implementations)
   * [Data Model](#data-model)
@@ -55,6 +62,20 @@ I created three flowcharts. One  to show the running of the whole game and one e
 This game is based inside a mock terminal deployed via Heroku and has basic design. I have added a welcome image using ASCII art.
 
 ## Features  
+
+### Name Input and Rules
+
+### Game Choices
+
+### Start of Game
+
+### Game One 
+
+### Game Two
+
+### Play Again
+
+### Validate Inputs
 
 ### Languages Used  
 Python
