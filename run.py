@@ -131,8 +131,8 @@ class Player:
             name(str): New name for Player.
         """
         while True:
-            user_name \
-                = input(" Ok Captain what is your name? \n ").strip().upper()
+            user_name = input(
+                " Ok Captain what is your name? \n ").strip().upper()
             if len(user_name) > 15:
                 print("\n Please choose a name with a max of 15 characters \n")
             elif user_name == "THE ENEMY":
