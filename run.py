@@ -135,7 +135,7 @@ class Player:
                 " Ok Captain what is your name? \n ").strip().upper()
             if len(user_name) > 15:
                 print("\n Please choose a name with a max of 15 characters \n")
-            elif user_name == "THE ENEMY":
+            elif user_name in ("THE ENEMY", "ENEMY"):
                 print("\n The computer has picked that,"
                       " please choose another name \n")
             elif user_name == "":
