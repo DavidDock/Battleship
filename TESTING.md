@@ -6,7 +6,7 @@
 
 ## PEP 8  
 
-I used [CI Python Linter](https://pep8ci.herokuapp.com/) throughout development to make sure there were no problems and issues could be fixed along the way. I did have quite a few lines above 79 characters mainly due to long variable names but I managed to split the lines using backslashes and indentation when required.
+I used [CI Python Linter](https://pep8ci.herokuapp.com/) throughout development to make sure there were no problems and issues could be fixed along the way. My code did have a number of lines above 79 characters mainly due to long variable names but I managed to split the lines using backslashes and indentation when required.
 
 ### Final Test Results
 
