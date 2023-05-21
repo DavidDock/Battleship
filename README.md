@@ -70,6 +70,7 @@ This game is based inside a mock terminal deployed via Heroku and has basic desi
 ### Name Input and Rules  
 A welcome message is displayed and the user is asked for their name. 
 If the user gives a [valid input](#validate-inputs) it will be displayed along with the rules of the two different games avaliable.  
+If the user inputs the same name as the computer they are asked to choose again.   
 If the user gives a blank input the name LAZY BONES will be given.  
 
 ![Welcome](assets/media/welcome.png)
@@ -128,9 +129,10 @@ This input will be checked if [valid](#validate-inputs), if Y is picked the whol
 ### Validate Inputs  
 All inputs are checked if they are valid. A function was created to check if the input given is within  a list of valid input choices.  
 All inputs have their whitespace either sides removed incase of keyboard error. All strings are turned into uppercase for the same reason.  
-For the user name input I have chosen to limit it to 15 characters to maintain screen readability. I allowed the user to use numbers and symbols, except whitespace at the start because this does not look quite right during the game.  
+For the user name input I have chosen to limit it to 15 characters to maintain screen readability. If the user for some reason picked the same name as the computer (THE ENEMY) they are asked to pick again. I allowed the user to use numbers and symbols, except whitespace at the start because this does not look quite right during the game.  
 If the user enters nothing/blank  for the battlefield grid choice they are given a random size grid.    
-If the user enters nothing/blank for the ship number choice they are given only one ship.    
+If the user enters nothing/blank for the ship number choice they are given only one ship.  
+The coordinate guess is checked if its in the valid input range and then checked if its been guessed before, if it has they are asked to guess again.  
 All of the inputs have been thoroughly tested and documented in the [TESTING.md](TESTING.md)  
 See below for examples of invalid input messages.  
 
