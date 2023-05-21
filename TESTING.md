@@ -46,3 +46,7 @@ I undertook the following manual tests:
 * As a user I want to clearly know what I am doing - All rules  are explained and the results of each input or action are displayed to the user through print statements.  
 * As a user I want to play a game against a computer to see if I come out on top - Two game types to play against the computer function well.   
 * As a returning user I would like to play again and show my friends - The user is given the option to play again after the game is complete and there are different options given to encourage return use.
+* As the site owner I want to entertain the user - The user is given a good amount of options and should entertain.
+* As the site owner I would like to provide a game that is easy to understand - clear instructions and print statements are displayed throughout to ensure the game is easy to understand.
+* As the site owner I would like all user inputs to provide feedback and let the game continue - All invalid inputs have been accounted for and tested. The user is informed of their inputs at every stage.
+* As the site owner I would like to encourage the user to play more than once and return to the site - With the play again option and multiple choices to change the game this encourages the user to return.
