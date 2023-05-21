@@ -2,7 +2,8 @@
 
 * [PEP8 Linter](#pep-8)
 * [General Bugs and Fixes Throughout Development](#general-bugs-and-fixes-throughout-development)
-* [Manual Testing](#manual-testing)  
+* [Manual Testing](#manual-testing)
+* [User Story Tests](#user-story-tests) 
 
 ## PEP 8  
 
@@ -39,4 +40,9 @@ I undertook the following manual tests:
 | Choose to Play again | Display error message if invalid input entered and asks to re-enter. It should work with lower and uppercase entry. Either restarts game if Y chosen or gives a fairwell message and stops game if N is entered. | Stress tested with invalid letters,numbers, blank space and no entry. | Correct invalid message displayed and user asked to play again. Correct outcome achieved if valid input. Allthough if blank space is infront or after a valid entry I feel it should be valid. | Added .strip() to improve - Fixed. |
 | Game Two Valid Coordinate Guessed | Correct HIT or MISS message given and marked on user guess board and player 2 ship board correctly. If all computer ships aren't sunk then Computer makes random guess which also displayes HIT or MISS message and marks their guess board and the users ship board and if Users ships aren't all sunk User boards print again and new coordinate guess should be asked for. | Played lots of times also with all boards printed too so I could see where ships were and HITS/MISSES made. | All HITS and MISSES correctly marked on boards and messages given . Boards re-printed and new coordinates asked for until a player won. | Pass
 | User HIT all computer Ships Game Two | Display sunk ship message. Display winning message. Print player two ship board. Ask if user wants to play again. | Played and won lots of times. | Correct outcome. | Pass |
-| Computer sunk all User Ships Game Two | Display sunk ship message. Display loosing message. Print user ship board. Ask if user wants to play again. | Played and lost lots of times. | Correct outcome. | Pass |
+| Computer sunk all User Ships Game Two | Display sunk ship message. Display loosing message. Print user ship board. Ask if user wants to play again. | Played and lost lots of times. | Correct outcome. | Pass |  
+
+## User Story Tests
+* As a user I want to clearly know what I am doing - All rules  are explained and the results of each input or action are displayed to the user through print statements.  
+* As a user I want to play a game against a computer to see if I come out on top - Two game types to play against the computer function well.   
+* As a returning user I would like to play again and show my friends - The user is given the option to play again after the game is complete and there are different options given to encourage return use.
